@@ -62,7 +62,6 @@ class TodoList {
         if(argv[3] == undefined){
           console.log(`id not defined!! \n tak saat ini : ${this.listData.length}`);
         }else {
-          // console.log(`task ${this.listData[argv[3]].task} deleted`)
           for (let i = 0; i < this.listData.length; i++) {
             if (this.listData[i].id == parseInt(argv[3])) {
               this.listData.splice(i, 1)
