@@ -1,1 +1,32 @@
-[{"id":1,"task":"Makan","status":false},{"id":2,"task":"Minum","status":false},{"id":3,"task":"Berenang ","status":false},{"id":4,"task":"Tidur siang ","status":false},{"id":5,"task":"Kencan","status":false},{"id":6,"task":"Olahraga","status":false},{"id":7,"task":"Makan malam dengan mertua","status":false}]
+[
+  {
+    "id": 1,
+    "task": "Makan",
+    "status": false
+  },
+  {
+    "id": 2,
+    "task": "Minum",
+    "status": false
+  },
+  {
+    "id": 3,
+    "task": "Berenang ",
+    "status": false
+  },
+  {
+    "id": 4,
+    "task": "Olahraga",
+    "status": false
+  },
+  {
+    "id": 5,
+    "task": "Makan malam dengan mertua",
+    "status": false
+  },
+  {
+    "id": 6,
+    "task": "koding",
+    "status": false
+  }
+]

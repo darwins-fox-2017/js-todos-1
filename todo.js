@@ -168,7 +168,7 @@ class listToDo {
   }
 
   save(){
-    jsonfile.writeFileSync("data.json",this.data)
+    jsonfile.writeFileSync("data.json",this.data, {spaces: 2})
   }
 
 }
