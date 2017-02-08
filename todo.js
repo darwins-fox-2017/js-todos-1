@@ -1,13 +1,9 @@
 "use strict"
 const fs        = require('fs')
-const file      = 'data.json'
-const readFile  = fs.readFileSync(file,'utf-8')
-const parseData = JSON.parse(readFile)
 
 class TodoList {
   constructor(values) {
     this.listData = values
-    this.idLast   = this.listData[this.listData.length -1].id + 1
   }
 
   writeToFile(){
@@ -15,17 +11,21 @@ class TodoList {
   }
 
   inputToList(value){
-    this.listData.push({"id" : this.idLast, "task" : value, "status" : false})
-    this.idLast++
-    console.log(value);
-    console.log(this.listData);
+    let idLast = 1
+    if (typeof this.listData[this.listData.length -1] !== 'undefined'){
+      idLast   = this.listData[this.listData.length -1].id + 1
+    }
+
+    this.listData.push({"id" : idLast, "task" : value, "status" : false})
   }
 
-  controller(){
+  controller(value){
     let listMenu = ["# will call help","node todo.js help","node todo.js list",
                     "node todo.js add <task_content>","node todo.js task <task_id>",
                     "node todo.js delete <task_id>", "node todo.js complete <task_id>",
-                    "node todo.js uncomplete <task_id>"];
+                    "node todo.js uncomplete <task_id>","node todo.js list:outstanding asc|desc",
+                    "node todo.js list:completed asc|desc", "node todo.js tag <task_id> <tag_name_1> ... <tag_name_N>",
+                    "node todo.js filter:<tag_name>"];
     let argv     = process.argv
 
     switch (argv[2]) {
@@ -59,21 +59,21 @@ class TodoList {
         }
         break;
       case "delete":
-        if(argv[3] == undefined || argv[3] > this.listData.length){
+        if(argv[3] == undefined){
           console.log(`id not defined!! \n tak saat ini : ${this.listData.length}`);
         }else {
-          console.log(`task ${this.listData[argv[3]-1].task} deleted`)
-          this.listData.splice(argv[3]-1,1)
-
+          // console.log(`task ${this.listData[argv[3]].task} deleted`)
           for (let i = 0; i < this.listData.length; i++) {
-            this.listData[i]['id'] += 1;
+            if (this.listData[i].id == parseInt(argv[3])) {
+              this.listData.splice(i, 1)
+            }
           }
         }
         this.writeToFile()
         break;
       case "complete":
         if(argv[3] == undefined || argv[3] > this.listData.length){
-          console.log(`id not defined!! \n tak saat ini : ${this.listData.length}`);
+          console.log(`id not defined!! \n task saat ini : ${this.listData.length}`);
         }else {
           this.listData[argv[3]-1].status = true
           console.log(`task ${this.listData[argv[3]-1].task} is completed!!`)
@@ -82,7 +82,7 @@ class TodoList {
         break;
       case "uncomplete":
         if(argv[3] == undefined || argv[3] > this.listData.length){
-          console.log(`id not defined!! \n tak saat ini : ${this.listData.length}`);
+          console.log(`id not defined!! \n task saat ini : ${this.listData.length}`);
         }else {
           this.listData[argv[3]-1].status = false
           console.log(`task ${this.listData[argv[3]-1].task} is uncomplete !!`)
@@ -97,5 +97,12 @@ class TodoList {
   }
 }
 
-let TODO  = new TodoList(parseData)
-    TODO.controller()
+const file      = 'data.json'
+const readFile  = fs.readFileSync(file,'utf-8')
+var parseData = []
+if(readFile) {
+  parseData = JSON.parse(readFile)
+}
+
+let todo = new TodoList(parseData)
+    todo.controller()
