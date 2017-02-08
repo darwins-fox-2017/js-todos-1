@@ -25,11 +25,13 @@ switch(args[2]) {
       }
     }
     break;
+
   case 'add' :
     let kata = args.splice(3, args.length-3);
     data.push({ 'id' : data.length+1, 'task' : kata.join(' '), 'complete' : false})
     fs.writeFileSync('data.JSON', JSON.stringify(data), 'utf8');
     break;
+
   case 'task' :
     for(let i = 0; i < args.length; i++) {
       if(args[3] == [i+1]) {
@@ -41,6 +43,7 @@ switch(args[2]) {
       }
     }
     break;
+
   case 'delete' :
     for(let i = 0; i < args.length; i++) {
       if(args[3] == [i+1]) {
@@ -49,6 +52,7 @@ switch(args[2]) {
     }
     fs.writeFileSync('data.JSON', JSON.stringify(data), 'utf-8');
     break;
+
   case 'complete' :
     for(let i = 0; i < args.length; i++) {
       if(args[3] == [i+1]) {
@@ -57,6 +61,7 @@ switch(args[2]) {
     }
     fs.writeFileSync('data.JSON', JSON.stringify(data), 'utf-8');
     break;
+    
   case 'uncomplete' :
     for(let i = 0; i < args.length; i++) {
       if(args[3] == [i+1]) {
