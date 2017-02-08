@@ -28,6 +28,9 @@ class TodoList {
       case 'uncomplete':
         this.uncomplete(this.command.slice(1,2)[0])
         break;
+      case 'task':
+        this.task(this.command.slice(1,2)[0])
+        break;
       default:
         console.log('Please input correct command!');
         this.help()
@@ -105,6 +108,15 @@ class TodoList {
       }
     }
     this.save()
+  }
+
+  task(id) {
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i].id == id) {
+        console.log(this.data[i].task)
+        break
+      }
+    }
   }
 }
 
