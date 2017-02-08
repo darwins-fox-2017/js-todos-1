@@ -61,7 +61,7 @@ switch(args[2]) {
     }
     fs.writeFileSync('data.JSON', JSON.stringify(data), 'utf-8');
     break;
-    
+
   case 'uncomplete' :
     for(let i = 0; i < args.length; i++) {
       if(args[3] == [i+1]) {
