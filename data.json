@@ -1,17 +1,1 @@
-[
-  {
-     "id": 1,
-     "task": "makan",
-     "completed": true
-  },
-  {
-     "id": 2,
-     "task": "nonton drama korea",
-     "completed": false
-  },
-  {
-     "id": 3,
-     "task": "coding",
-     "completed": true
-  }
-]
+[{"id":1,"task":"nonton drama korea","completed":true},{"id":2,"task":"makan","completed":false}]
