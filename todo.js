@@ -26,6 +26,10 @@ class listToDo {
         this.task(this.comment.slice(1).join(''));
         break;
 
+      case "delete":
+
+        this.deleteData(this.comment.slice(1).join(''));
+        break;
       default:
         console.log("command is not found see help!");
         this.help();
@@ -85,8 +89,28 @@ class listToDo {
     }
   }
 
-  deleteData(){
-
+  deleteData(id){
+    let i = 0
+    let flag = true
+    while (flag) {
+      if(id<=this.data.length){
+        if(id == this.data[i].id){
+          this.data.splice(i,1)
+          console.log('data has been removed!');
+          for (let j=id-1; j <this.data.length; j++) {
+            this.data[j].id--
+          }
+          flag = false
+        }
+        else{
+          i++
+        }
+      }else{
+        console.log('data is not found, see help!');
+        flag = false
+      }
+    }
+    this.save()
   }
 
   complete(){
