@@ -18,16 +18,12 @@ class listToDo {
 
       case "add":
 
-        let task = ""
-        for (var i = 1; i < this.comment.length; i++) {
-          task += this.comment[i] + " "
-        }
-        this.add(task.trim())
+        this.add(this.comment.slice(1).join(' '))
         break;
 
       case "task":
 
-        this.list();
+        this.task(this.comment.slice(1).join(''));
         break;
 
       default:
@@ -62,8 +58,8 @@ class listToDo {
         "id"     : this.data.length + 1,
         "task"   : task,
         "status" : false
-      })  // jsonfile.writeFileSync("data.json",task)
-      jsonfile.writeFileSync("data.json",this.data)
+      })
+      this.save()
       console.log("data has been added");
     }else{
       console.log("nothing to be added");
@@ -72,9 +68,21 @@ class listToDo {
   }
 
   task(id){
-    // for (let i = 0; i < array.length; i++) {
-    //   array[i]
-    // }
+    let i = 0
+    let flag = true
+    while (flag) {
+      if(id<=this.data.length){
+        if(id == this.data[i].id){
+          console.log(`${this.data[i].id}. ${this.data[i].status?'[x]':'[ ]'} ${this.data[i].task}`);
+          flag = false
+        }else{
+          i++
+        }
+      }else{
+        console.log('data is not found, see help!');
+        flag = false
+      }
+    }
   }
 
   deleteData(){
@@ -90,7 +98,7 @@ class listToDo {
   }
 
   save(){
-    // jsonfile.writeFileSync("data.json",this.listArr)
+    jsonfile.writeFileSync("data.json",this.data)
   }
 
 }
