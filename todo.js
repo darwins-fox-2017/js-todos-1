@@ -19,6 +19,13 @@ class TodoList {
         })
     }
 
+    sortId() {
+      for(let i=0; i < this.listData.length; i++){
+        this.listData[i].id = i+1
+      }
+      return this.listData
+    }
+
     controller() {
         let listMenu = [
             "node todo.js # will call help",
@@ -54,6 +61,7 @@ class TodoList {
                 console.log('write something what is your input dude !');
             } else {
                 this.inputToList(argv.splice(3, argv.length));
+                this.sortId()
                 this.writeToFile();
             }
         }
@@ -73,6 +81,7 @@ class TodoList {
             } else {
                 console.log(`task ${argv[3]} File deleted dude !`)
                 listData.splice(parseInt(argv[3]) - 1, 1)
+                this.sortId()
                 this.writeToFile()
             }
         }
@@ -83,6 +92,7 @@ class TodoList {
             } else {
                 console.log(`${listData[argv[3]-1].id} [x] ${listData[argv[3]-1].task}`);
                 listData[argv[3] - 1].complete = true
+                this.sortId()
                 this.writeToFile()
 
             }
@@ -95,8 +105,8 @@ class TodoList {
             } else {
                 console.log(`${listData[argv[3]-1].id} [ ] ${listData[argv[3]-1].task}`);
                 listData[argv[3] - 1].complete = false
+                this.sortId()
                 this.writeToFile()
-
             }
         }
     }
