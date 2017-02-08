@@ -1,4 +1,27 @@
 [
-	{"task" : "Bikin Aplikasi"},
-	{"task" : "Bikin Aplikasi 2"}
+   {
+      "id": 1,
+      "task": "Bikin Aplikasi 2",
+      "completed": false
+   },
+   {
+      "id": 2,
+      "task": "makan",
+      "completed": false
+   },
+   {
+      "id": 3,
+      "task": "Tidur",
+      "completed": false
+   },
+   {
+      "id": 5,
+      "task": "Mandi",
+      "completed": true
+   },
+   {
+      "id": 5,
+      "task": "Terbang",
+      "completed": false
+   }
 ]
