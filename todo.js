@@ -30,6 +30,15 @@ class listToDo {
 
         this.deleteData(this.comment.slice(1).join(''));
         break;
+
+      case "complete":
+
+        this.completeTask(this.comment.slice(1).join(''));
+        break;
+      case "uncomplete":
+
+        this.uncompleteTask(this.comment.slice(1).join(''));
+        break;
       default:
         console.log("command is not found see help!");
         this.help();
@@ -113,12 +122,48 @@ class listToDo {
     this.save()
   }
 
-  complete(){
-
+  completeTask(id){
+    let i = 0
+    let flag = true
+    while (flag) {
+      if(id<=this.data.length){
+        if(id == this.data[i].id){
+          this.data[i].status = true
+          console.log('data has been sucsessfully updated!');
+          flag = false
+        }
+        else{
+          i++
+        }
+      }else{
+        console.log('data is not found, see help!');
+        flag = false
+      }
+    }
+    this.save()
+    this.list()
   }
 
-  uncomplete(){
-
+  uncompleteTask(id){
+    let i = 0
+    let flag = true
+    while (flag) {
+      if(id<=this.data.length){
+        if(id == this.data[i].id){
+          this.data[i].status = false
+          console.log('data has been sucsessfully updated!');
+          flag = false
+        }
+        else{
+          i++
+        }
+      }else{
+        console.log('data is not found, see help!');
+        flag = false
+      }
+    }
+    this.save()
+    this.list()
   }
 
   save(){
