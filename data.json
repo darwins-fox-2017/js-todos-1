@@ -1,41 +1,5 @@
 [
    {
-      "task": "makan",
-      "id": "1",
-      "status": "",
-      "created_date": "Wed Jan 11 2017 16:01:42 GMT+0700 (SE Asia Standard Time)",
-      "tag": [
-         "kucing",
-         "anjing",
-         "babi"
-      ]
-   },
-   {
-      "task": "minum",
-      "id": "2",
-      "status": "",
-      "created_date": "Wed Jan 11 2017 16:02:08 GMT+0700 (SE Asia Standard Time)",
-      "tag": [
-         "kucing",
-         "anjing",
-         "babi"
-      ]
-   },
-   {
-      "task": "tidur",
-      "id": "5",
-      "status": "",
-      "created_date": "Wed Jan 11 2017 12:03:42 GMT+0700 (SE Asia Standard Time)",
-      "tag": ""
-   },
-   {
-      "task": "ngemil",
-      "id": "6",
-      "status": "",
-      "created_date": "Wed Jan 11 2017 19:17:59 GMT+0700 (SE Asia Standard Time)",
-      "tag": ""
-   },
-   {
       "task": "3",
       "id": "8",
       "status": "",
@@ -47,6 +11,33 @@
       "id": "6",
       "status": "",
       "created_date": "Wed Feb 08 2017 13:57:35 GMT+0700 (WIB)",
+      "tags": ""
+   },
+   {
+      "task": "manjat_jiwa",
+      "id": "7",
+      "status": "",
+      "created_date": "Wed Feb 08 2017 16:26:58 GMT+0700 (WIB)",
+      "tags": [
+         "anak",
+         "ayam",
+         "kucing"
+      ]
+   },
+   {
+      "task": "makan",
+      "id": "9",
+      "status": "",
+      "created_date": "Wed Feb 08 2017 17:04:15 GMT+0700 (WIB)",
+      "finished_date": "Wed Feb 08 2017 17:04:15 GMT+0700 (WIB)",
+      "tags": ""
+   },
+   {
+      "task": "makan malam",
+      "id": "12",
+      "status": "X",
+      "created_date": "Wed Feb 08 2017 17:07:33 GMT+0700 (WIB)",
+      "finished_date": "Wed, 08 Feb 2017 10:14:30 GMT",
       "tags": ""
    }
 ]
