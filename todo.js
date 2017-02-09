@@ -24,19 +24,19 @@ class jsTODO {
         break
 
       case "task" :
-        this.task(this.content)
+        this.task(this.content.slice(1).join(' '))
         break
 
       case "delete" :
-        this.delete(this.content)
+        this.delete(this.content.slice(1).join(' '))
         break
 
       case "complete" :
-        this.complete(this.content)
+        this.complete(this.content.slice(1).join(' '))
         break
 
       case "uncomplete" :
-        this.uncomplete(this.content)
+        this.uncomplete(this.content.slice(1).join(' '))
         break
 
       default:
@@ -66,7 +66,7 @@ class jsTODO {
   list() {
     for (let i = 0; i < this.data.length; i++) {
       let status = (this.data[i].status) ? "x" : ' '
-      console.log(this.data[i].id + ". [" + status + "] " + this.data[i].task)
+      console.log(i+1 + ". [" + status + "] " + this.data[i].task)
     }
   }
 
@@ -83,7 +83,7 @@ class jsTODO {
   }
 
   delete(content) {
-    let index = content - 1
+    let index = content-1
     this.data.splice(index, 1)
     this.writeToFile()
     console.log("Deleted \"" + content + "\" to your todo list")
